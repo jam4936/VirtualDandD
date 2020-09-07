@@ -1,0 +1,12 @@
+[0m[[0m[33mwarn[0m] [0m[0mC:\Users\jam941\Downloads\play-samples-play-java-chatroom-example\play-samples-play-java-chatroom-example\app\controllers\HomeController.java:39:1: unchecked call to <P>match(java.lang.Class<P>,akka.japi.pf.FI.Apply<P,R>) as a member of the raw type akka.japi.pf.PFBuilder[0m
+[0m[[0m[33mwarn[0m] [0m[0mnew PFBuilder().match(Throwable.class, e -> Source.empty())[0m
+[0m[[0m[33mwarn[0m] [0m[0mC:\Users\jam941\Downloads\play-samples-play-java-chatroom-example\play-samples-play-java-chatroom-example\app\controllers\HomeController.java:39:1: unchecked method invocation: method recoverWithRetries in class akka.stream.javadsl.Source is applied to given types[0m
+[0m[[0m[33mwarn[0m] [0m[0m  required: int,scala.PartialFunction<java.lang.Throwable,? extends akka.stream.Graph<akka.stream.SourceShape<Out>,akka.NotUsed>>[0m
+[0m[[0m[33mwarn[0m] [0m[0m  found: int,scala.PartialFunction[0m
+[0m[[0m[33mwarn[0m] [0m[0mMergeHub.of(String.class)[0m
+[0m[[0m[33mwarn[0m] [0m[0m                .log("source", logging)[0m
+[0m[[0m[33mwarn[0m] [0m[0m                .recoverWithRetries(-1, new PFBuilder().match(Throwable.class, e -> Source.empty()).build())[0m
+[0m[[0m[33mwarn[0m] [0m[0mC:\Users\jam941\Downloads\play-samples-play-java-chatroom-example\play-samples-play-java-chatroom-example\app\controllers\HomeController.java:39:1: unchecked conversion[0m
+[0m[[0m[33mwarn[0m] [0m[0m  required: scala.PartialFunction<java.lang.Throwable,? extends akka.stream.Graph<akka.stream.SourceShape<Out>,akka.NotUsed>>[0m
+[0m[[0m[33mwarn[0m] [0m[0m  found:    scala.PartialFunction[0m
+[0m[[0m[33mwarn[0m] [0m[0mnew PFBuilder().match(Throwable.class, e -> Source.empty()).build()[0m
