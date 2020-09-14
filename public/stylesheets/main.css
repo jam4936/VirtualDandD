@@ -11,3 +11,7 @@ html, body {
 .footer {
     height: 60px;
 }
+
+.hide{
+    display: none;
+}
