@@ -1,101 +1,76 @@
 @(url: String, webJarsUtil: org.webjars.play.WebJarsUtil)
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+            <!-- Add icon library -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
 
-        @webJarsUtil.locate("bootstrap.min.css").css()
-        @webJarsUtil.locate("bootstrap-theme.min.css").css()
+.input-container {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+}
 
-        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
-        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
-        <title>Chat Room</title>
+.icon {
+    padding: 10px;
+    background: dodgerblue;
+    color: white;
+    min-width: 50px;
+    text-align: center;
+}
 
+.input-field {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+}
+
+.input-field:focus {
+    border: 2px solid dodgerblue;
+}
+
+/* Set a style for the submit button */
+.btn {
+    background-color: dodgerblue;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+.btn:hover {
+    opacity: 1;
+}
+</style>
     </head>
-
     <body>
-        <div class="hide">
-            <div class="wrap">
-                <div class="container-fluid">
-                    <div>
-                        <h1 class="">Chat Room</h1>
-                    </div>
 
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <ul id="messages" class="list-unstyled">
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+        <form action="/views/chat.html" style="max-width:500px;margin:auto">
+            <h2>Register Form</h2>
+            <div class="input-container">
+                <i class="fa fa-user icon"></i>
+                <input class="input-field" type="text" placeholder="Username" name="usrnm">
             </div>
 
-            <div class="footer navbar-fixed-bottom">
-                <div class="row">
-                    <div class="col-xs-8 col-sm-9">
-                        <input id="message" placeholder="Type Here" type="text"
-                          autofocus
-                          autocomplete="off" spellcheck="false" autocorrect="off"
-                          class="form-control input-lg" />
-                    </div>
-
-                    <div class="col-xs-4 col-sm-3">
-                        <button id="send" type="submit" class="btn btn-primary btn-lg btn-block">Send</button>
-                    </div>
-                </div>
+            <div class="input-container">
+                <i class="fa fa-envelope icon"></i>
+                <input class="input-field" type="text" placeholder="Email" name="email">
             </div>
 
-            @webJarsUtil.locate("jquery.min.js").script()
+            <div class="input-container">
+                <i class="fa fa-key icon"></i>
+                <input class="input-field" type="password" placeholder="Password" name="psw">
+            </div>
 
-            <script language="javascript">
-                    var $messages = $("#messages"),
-                            $send = $("#send"),
-                            $message = $("#message"),
-                            connection = new WebSocket("@url");
+            <button type="submit" class="btn">Register</button>
+        </form>
 
-                    $send.prop("disabled", true);
-
-                    var send = function () {
-                        var text = $message.val();
-                        $message.val("");
-                        connection.send(text);
-                    };
-
-                    connection.onopen = function () {
-                        $send.prop("disabled", false);
-                        $messages.prepend($("<li class='bg-info' style='font-size: 1.5em'>Connected</li>"));
-                        $send.on('click', send);
-                        $message.keypress(function(event){
-                            var keycode = (event.keyCode ? event.keyCode : event.which);
-                            if(keycode == '13'){
-                                send();
-                            }
-                        });
-                    };
-                    connection.onerror = function (error) {
-                        console.log('WebSocket Error ', error);
-                    };
-                    connection.onmessage = function (event) {
-                        $messages.append($("<li style='font-size: 1.5em'>" + event.data + "</li>"))
-                    }
-            </script>
-        </div>
-        <div>
-            <button id="submit lobby">Join Lobby</button>
-            <input type="text" id="lobby">
-            <script language="JavaScript">
-                    var send = function () {
-                        var text = $lobby.val();
-                        connection.send(text)
-                    };
-
-                    connection.onopen = function(ev) {
-                        console.log("Binding connection");
-                    }
-            </script>
-        </div>
     </body>
-
 </html>
