@@ -82,20 +82,7 @@
                     }
             </script>
         </div>
-        <div>
-            <button id="submit lobby">Join Lobby</button>
-            <input type="text" id="lobby">
-            <script language="JavaScript">
-                    var send = function () {
-                        var text = $lobby.val();
-                        connection.send(text)
-                    };
 
-                    connection.onopen = function(ev) {
-                        console.log("Binding connection");
-                    }
-            </script>
-        </div>
     </body>
 
 </html>
