@@ -11,6 +11,7 @@ import akka.stream.javadsl.*;
 import org.webjars.play.WebJarsUtil;
 import play.libs.F;
 import play.mvc.*;
+import sun.misc.Request;
 
 import javax.inject.Inject;
 import java.net.URI;
@@ -90,21 +91,29 @@ public class HomeController extends Controller {
         }
     }
 
-    public Result signUp() {
-        return ok(views.html.signUp.render());
+
+    public Result signUp(Http.Request request) {
+        String url = routes.HomeController.chat().webSocketURL(request);
+        System.out.println("MY URL IS " + url);
+        return ok(views.html.signUp.render(url,webJarsUtil));
     }
 
     public Result login() {
         return ok(views.html.login.render());
     }
-
     public Result account() {
         return ok(views.html.account.render());
     }
 
     public Result chatroom(Http.Request request) {
         String url = routes.HomeController.chat().webSocketURL(request);
+        System.out.println("TEST: " + url);
         return Results.ok(views.html.chatroom.render(url, webJarsUtil));
+    }
+    public Result register(Http.Request request){
+        //DynamicForm form = request.
+        System.out.println("TEST " + request.body());
+        return Results.ok();
     }
 
 }

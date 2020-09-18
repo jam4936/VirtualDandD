@@ -5,11 +5,12 @@
 # An example controller showing a sample home page
 GET     /                           controllers.HomeController.index(request: Request)
 GET     /chat                       controllers.HomeController.chat
-GET     /signUp                     controllers.HomeController.signUp
+GET     /signUp                     controllers.HomeController.signUp(request: Request)
 GET     /login                      controllers.HomeController.login
 GET     /account                    controllers.HomeController.account
 GET     /chatroom                    controllers.HomeController.chatroom(request: Request)
 
+POST    /chat/register                   controllers.HomeController.register(request: Request)
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
 

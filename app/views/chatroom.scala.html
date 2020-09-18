@@ -80,6 +80,7 @@
                         };
                         connection.onmessage = function (event) {
                             $messages.append($("<li style='font-size: 1.5em'>" + event.data + "</li>"))
+                            console.log("@url");
                         }
                 </script>
             </body>
