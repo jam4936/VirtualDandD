@@ -93,9 +93,9 @@ public class HomeController extends Controller {
 
 
     public Result signUp(Http.Request request) {
-        String url = routes.HomeController.chat().webSocketURL(request);
-        System.out.println("MY URL IS " + url);
-        return ok(views.html.signUp.render(url,webJarsUtil));
+        String url = "ws://localhost:9000";
+        System.out.println("MY URL IS " + url+request.uri());
+        return ok(views.html.signUp.render(url +request.uri(),webJarsUtil));
     }
 
     public Result login() {
