@@ -3,18 +3,10 @@
   <component name="Play2ExcludedModulesSettings">
     <option name="INFO">
       <map>
-        <entry key="play-java-chatroom-example">
-          <value>
-            <ProjectSettingsEntry>
-              <option name="playDistrPath" value="$PROJECT_DIR$/null/Coursier/cache/v1/https/repo1.maven.org/maven2/com/typesafe/play/play_2.13/2.8.2/play_2.13-2.8.2.jar" />
-            </ProjectSettingsEntry>
-          </value>
-        </entry>
         <entry key="root">
           <value>
             <ProjectSettingsEntry>
-              <option name="sourceDir" value="C:\Users\jam941\Documents\VirtualDandD\app" />
-              <option name="confDir" value="C:\Users\ele06\IdeaProjects\VirtualDandD\app" />
+              <option name="confDir" value="C:\Users\jam941\Videos\VirtualDandD\app" />
               <option name="templateImports">
                 <list>
                   <option value="_root_.play.twirl.api.TwirlFeatureImports._" />
@@ -44,7 +36,7 @@
                   <option value="play.libs.F" />
                 </list>
               </option>
-              <option name="uri" value="/C:/Users/ele06/IdeaProjects/VirtualDandD" />
+              <option name="uri" value="/C:/Users/jam941/Videos/VirtualDandD" />
             </ProjectSettingsEntry>
           </value>
         </entry>
