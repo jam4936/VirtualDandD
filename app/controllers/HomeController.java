@@ -90,7 +90,6 @@ public class HomeController extends Controller {
         }
     }
 
-
     public Result signUp() {
         return ok(views.html.signUp.render());
     }
@@ -107,8 +106,5 @@ public class HomeController extends Controller {
         String url = routes.HomeController.chat().webSocketURL(request);
         return Results.ok(views.html.chatroom.render(url, webJarsUtil));
     }
-    /*public Result account() {
-        return ok(views.html.account.render(user));
-    }*/
 
 }
