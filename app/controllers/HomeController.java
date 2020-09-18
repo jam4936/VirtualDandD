@@ -112,7 +112,7 @@ public class HomeController extends Controller {
     }
     public Result register(Http.Request request){
         //DynamicForm form = request.
-        System.out.println("TEST " + request.body());
+        System.out.println("TEST " + request);
         return Results.ok();
     }
 
