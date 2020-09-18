@@ -8,7 +8,10 @@ import akka.japi.Pair;
 import akka.japi.pf.PFBuilder;
 import akka.stream.Materializer;
 import akka.stream.javadsl.*;
+import jdk.swing.interop.SwingInterOpUtils;
 import org.webjars.play.WebJarsUtil;
+import play.data.DynamicForm;
+import play.data.Form;
 import play.libs.F;
 import play.mvc.*;
 
@@ -60,6 +63,11 @@ public class HomeController extends Controller {
                 return CompletableFuture.completedFuture(F.Either.Left(forbidden()));
             }
         });
+    }
+    public Result register(Http.Request request){
+        //DynamicForm form = request.
+        System.out.println("TEST " + request.body());
+        return Results.ok();
     }
 
     /**

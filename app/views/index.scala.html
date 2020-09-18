@@ -52,7 +52,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
     </head>
     <body>
 
-        <form action="/views/chat.html" style="max-width:500px;margin:auto">
+        <form action="/register" style="max-width:500px;margin:auto" method="post">
             <h2>Register Form</h2>
             <div class="input-container">
                 <i class="fa fa-user icon"></i>
@@ -69,7 +69,27 @@ body {font-family: Arial, Helvetica, sans-serif;}
                 <input class="input-field" type="password" placeholder="Password" name="psw">
             </div>
 
-            <button type="submit" class="btn">Register</button>
+            <button type="submit" class="btn" id="submit">Register</button>
+            <script language="JavaScript">
+                    connection = new WebSocket("@url");
+                    var submit = function () {
+                        console.log("Sending Info " , connection);
+                        //console.log(new WebSocket("localhost:9000/register"));
+
+                        userform.user = document.getElementsByName("usrnm").values();
+                        userform.psw = document.getElementsByName("psw").values();
+                        userform.email = document.getElementsByName("email").values();
+
+                        connection.send(userform);
+                        console.log("Info should be sent: " , userform);
+                    };
+
+                    connection.onopen = function(ev) {
+                        console.log("Binding button to submit");
+                        document.getElementById("submit").addEventListener("click",submit);
+                        console.log("Binded the button successfully")
+                    }
+            </script>
         </form>
 
     </body>
