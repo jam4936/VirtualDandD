@@ -110,9 +110,9 @@ hr {
                  else {
                      //TODO REJECT BAD CASES
                  }
-                 console.log("@url");
+                 console.log(form);
 
-                 connection.send(form)
+                 connection.send(JSON.stringify(form));
                  //connection.send(text);
              };
 
